@@ -100,7 +100,7 @@ public class Main {
         System.out.println(); // Переход на новую строку
 
         // Задача 8: Программирование вычисления лет, когда пролетает комета
-        System.out.println("Задача 8:");
+        System.out.println("Задача 8");
         int startYear = 1825; // 200 лет назад
         int endYear = 2125; // 100 лет вперед
 
