@@ -1,101 +1,51 @@
 public class Main {
     public static void main(String[] args) {
-        // Задача 1: Объявление массивов
-        // Целочисленный массив, заполненный 1, 2, 3
-        int[] intArray = new int[3];
-        intArray[0] = 1;
-        intArray[1] = 2;
-        intArray[2] = 3;
+        // Задача 1: Сумма всех выплат за месяц
+        int[] expenses = {1000, 2000, 1500, 3000, 2500}; // Массив с пятью элементами
+        int total = 0;
 
-        // Массив дробных чисел, заполненный значениями
-        double[] doubleArray = {1.57, 7.654, 9.986};
+        for (int expense : expenses) {
+            total += expense; // Суммируем все элементы массива
+        }
+        System.out.println("Сумма трат за месяц составила " + total + " рублей.");
 
-        // Произвольный массив (например, массив строк)
-        String[] stringArray = {"apple", "banana", "cherry"};
+        // Задача 2: Минимальная и максимальная траты за неделю
+        int[] weeklyExpenses = {1000, 2000, 1500, 3000, 2500}; // Массив с пятью элементами
+        int min = weeklyExpenses[0];
+        int max = weeklyExpenses[0];
 
-        // Задача 2: Печать элементов массивов в прямом порядке
-        printArray(intArray);
-        printArray(doubleArray);
-        printArray(stringArray);
-
-        // Задача 3: Печать элементов массивов в обратном порядке
-        printArrayReverse(intArray);
-        printArrayReverse(doubleArray);
-        printArrayReverse(stringArray);
-
-        // Задача 4: Преобразование нечетных чисел в четные
-        makeEven(intArray);
-        printArray(intArray); // Печать преобразованного массива
-    }
-
-    // Метод для печати массива в прямом порядке
-    public static void printArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i]);
-            if (i < array.length - 1) {
-                System.out.print(", ");
+        for (int expense : weeklyExpenses) {
+            if (expense < min) {
+                min = expense; // Находим минимальное значение
+            }
+            if (expense > max) {
+                max = expense; // Находим максимальное значение
             }
         }
-        System.out.println();
-    }
+        System.out.println("Минимальная сумма трат за неделю составила " + min + " рублей. Максимальная сумма трат за неделю составила " + max + " рублей.");
 
-    public static void printArray(double[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i]);
-            if (i < array.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println();
-    }
+        // Задача 3: Средняя сумма трат за месяц
+        int[] monthlyExpenses = {1000, 2000, 1500, 3000, 2500}; // Массив с пятью элементами
+        total = 0; // Сбрасываем сумму для новой задачи
 
-    public static void printArray(String[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i]);
-            if (i < array.length - 1) {
-                System.out.print(", ");
-            }
+        for (int expense : monthlyExpenses) {
+            total += expense; // Суммируем все элементы массива
         }
-        System.out.println();
-    }
 
-    // Метод для печати массива в обратном порядке
-    public static void printArrayReverse(int[] array) {
-        for (int i = array.length - 1; i >= 0; i--) {
-            System.out.print(array[i]);
-            if (i > 0) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println();
-    }
+        double average = total / 4.0; // Делим на количество недель (4 недели)
+        System.out.println("Средняя сумма трат за месяц составила " + average + " рублей.");
 
-    public static void printArrayReverse(double[] array) {
-        for (int i = array.length - 1; i >= 0; i--) {
-            System.out.print(array[i]);
-            if (i > 0) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println();
-    }
+        // Задача 4: Разворот массива символов
+        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
 
-    public static void printArrayReverse(String[] array) {
-        for (int i = array.length - 1; i >= 0; i--) {
-            System.out.print(array[i]);
-            if (i > 0) {
-                System.out.print(", ");
-            }
+        // Разворачиваем массив
+        for (int i = 0; i < reverseFullName.length / 2; i++) {
+            char temp = reverseFullName[i];
+            reverseFullName[i] = reverseFullName[reverseFullName.length - 1 - i];
+            reverseFullName[reverseFullName.length - 1 - i] = temp;
         }
-        System.out.println();
-    }
 
-    // Метод для преобразования нечетных чисел в четные
-    public static void makeEven(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] % 2 != 0) {
-                array[i] += 1; // Преобразуем нечетное число в четное
-            }
-        }
+        // Печатаем результат
+        System.out.println(new String(reverseFullName)); // Преобразуем массив символов в строку и выводим
     }
 }
