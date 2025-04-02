@@ -28,15 +28,16 @@ public class Main {
         System.out.println("Максимальная сумма трат за неделю составила " + maxExpense + " рублей.");
 
         // Задача 3: Средняя сумма трат за месяц
-        int[] monthlyExpenses = {1000, 2000, 1500, 3000, 2500}; // Массив с пятью элементами
-        total = 0; // Сбрасываем сумму для новой задачи
+        int[] weeklyExpenses = {1200, 1500, 900, 1300, 1100};  // Пример трат за месяц
 
-        for (int expense : monthlyExpenses) {
-            total += expense; // Суммируем все элементы массива
+        int totalExpense = 0;
+        for (int expense : weeklyExpenses) {
+            totalExpense += expense;
         }
 
-        double average = total / 4.0; // Делим на количество недель (4 недели)
-        System.out.println("Средняя сумма трат за месяц составила " + average + " рублей.");
+        double averageExpense = totalExpense / 5.0;  // Средняя сумма трат за месяц
+
+        System.out.println("Средняя сумма трат за месяц составила " + averageExpense + " рублей.");
 
         // Задача 4: Разворот массива символов
         char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
