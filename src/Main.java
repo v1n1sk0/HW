@@ -10,19 +10,22 @@ public class Main {
         System.out.println("Сумма трат за месяц составила " + total + " рублей.");
 
         // Задача 2: Минимальная и максимальная траты за неделю
-        int[] weeklyExpenses = {1000, 2000, 1500, 3000, 2500}; // Массив с пятью элементами
-        int min = weeklyExpenses[0];
-        int max = weeklyExpenses[0];
+        int[] weeklyExpenses = {1200, 1500, 900, 1300, 1100};  // Пример трат за неделю
+
+        int minExpense = weeklyExpenses[0];
+        int maxExpense = weeklyExpenses[0];
 
         for (int expense : weeklyExpenses) {
-            if (expense < min) {
-                min = expense; // Находим минимальное значение
+            if (expense < minExpense) {
+                minExpense = expense;
             }
-            if (expense > max) {
-                max = expense; // Находим максимальное значение
+            if (expense > maxExpense) {
+                maxExpense = expense;
             }
         }
-        System.out.println("Минимальная сумма трат за неделю составила " + min + " рублей. Максимальная сумма трат за неделю составила " + max + " рублей.");
+
+        System.out.println("Минимальная сумма трат за неделю составила " + minExpense + " рублей.");
+        System.out.println("Максимальная сумма трат за неделю составила " + maxExpense + " рублей.");
 
         // Задача 3: Средняя сумма трат за месяц
         int[] monthlyExpenses = {1000, 2000, 1500, 3000, 2500}; // Массив с пятью элементами
