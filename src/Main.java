@@ -1,58 +1,70 @@
+import java.time.LocalDate;
+
 public class Main {
+
+    // 1番目のタスク: Проверка високосного года
+    public static void checkLeapYear(int year) {
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            System.out.println(year + " год — високосный год");
+        } else {
+            System.out.println(year + " год — невисокосный год");
+        }
+    }
+
+    //
+    //2番目のタスク: Вывод информации о версии приложения
+    public static void checkAppVersion(int osType, int clientDeviceYear) {
+        int currentYear = LocalDate.now().getYear();
+
+        if (clientDeviceYear < 2015) {  // Устаревшие устройства
+            if (osType == 0) {  // iOS
+                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+            } else if (osType == 1) {  // Android
+                System.out.println("Установите облегченную версию приложения для Android по ссылке");
+            }
+        } else {  // Устройства, выпущенные в 2015 году и позже
+            if (osType == 0) {  // iOS
+                System.out.println("Установите приложение для iOS по ссылке");
+            } else if (osType == 1) {  // Android
+                System.out.println("Установите приложение для Android по ссылке");
+            }
+        }
+    }
+
+    //
+    //
+    //3番目のタスク: Расчет дней доставки банковской карты
+    public static int calculateDeliveryDays(int deliveryDistance) {
+        if (deliveryDistance <= 20) {
+            return 1;  // 1 день
+        } else if (deliveryDistance <= 60) {
+            return 2;  // 2 дня
+        } else if (deliveryDistance <= 100) {
+            return 3;  // 3 дня
+        } else {
+            return -1;  // Доставка невозможна
+        }
+    }
+
     public static void main(String[] args) {
-        // Задача 1: Сумма всех выплат за месяц
-        int[] expenses = {1000, 2000, 1500, 3000, 2500}; // Массив с пятью элементами
-        int total = 0;
 
-        for (int expense : expenses) {
-            total += expense; // Суммируем все элементы массива
+        // 1番目のタスク: Проверка високосного года
+        int year = 2024;  // Пример года
+        checkLeapYear(year);  // Вызов метода для проверки
+
+        // 2番目のタスク: Проверка версии приложения
+        int osType = 1;  // 0 — iOS, 1 — Android
+        int clientDeviceYear = 2014;  // Год выпуска устройства
+        checkAppVersion(osType, clientDeviceYear);  // Вызов метода
+
+        // 3番目のタスク: Расчет дней доставки
+        int deliveryDistance = 95;  // Расстояние до клиента
+        int days = calculateDeliveryDays(deliveryDistance);  // Вызов метода для расчета дней
+
+        if (days == -1) {
+            System.out.println("Доставка невозможна");
+        } else {
+            System.out.println("Потребуется дней: " + days);
         }
-        System.out.println("Сумма трат за месяц составила " + total + " рублей.");
-
-        // Задача 2: Минимальная и максимальная траты за неделю
-        int[] weeklyExpenses = {1200, 1500, 900, 1300, 1100};  // Пример трат за неделю
-
-        int minExpense = weeklyExpenses[0];
-        int maxExpense = weeklyExpenses[0];
-
-        for (int expense : weeklyExpenses) {
-            if (expense < minExpense) {
-                minExpense = expense;
-            }
-            if (expense > maxExpense) {
-                maxExpense = expense;
-            }
-        }
-
-        System.out.println("Минимальная сумма трат за неделю составила " + minExpense + " рублей.");
-        System.out.println("Максимальная сумма трат за неделю составила " + maxExpense + " рублей.");
-
-        // Задача 3: Средняя сумма трат за месяц
-        int[] monthlyExpenses = {2000, 3000, 1500, 4000, 2500}; // Массив с тратами за месяц
-
-        int sum = 0;
-
-        // Суммируем все расходы
-        for (int expense : monthlyExpenses) {
-            sum += expense;
-        }
-
-        // Находим среднее значение трат
-        double averageExpense = sum / 5.0; // Делаем деление на 5 для средней суммы
-
-        System.out.println("Средняя сумма трат за месяц составила " + averageExpense + " рублей.");
-
-        // Задача 4: Разворот массива символов
-        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-
-        // Разворачиваем массив
-        for (int i = 0; i < reverseFullName.length / 2; i++) {
-            char temp = reverseFullName[i];
-            reverseFullName[i] = reverseFullName[reverseFullName.length - 1 - i];
-            reverseFullName[reverseFullName.length - 1 - i] = temp;
-        }
-
-        // Печатаем результат
-        System.out.println(new String(reverseFullName)); // Преобразуем массив символов в строку и выводим
     }
 }
